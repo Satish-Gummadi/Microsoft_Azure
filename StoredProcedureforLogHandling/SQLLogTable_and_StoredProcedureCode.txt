@@ -1,0 +1,24 @@
+
+
+CREATE TABLE tbl_PipelineExecutionDetails(
+	PipelineRunID varchar(255),
+	DataFactoryName varchar(255),
+	PipelineName varchar(255),
+	PipelineTriggerName varchar(255),
+	PipelineTriggerTime varchar(255)
+);
+
+CREATE PROCEDURE sp_logPipelineExecutionDetails
+	@PipelineRunID varchar(255),
+	@DataFactoryName varchar(255),
+	@PipelineName varchar(255),
+	@PipelineTriggerName varchar(255),
+	@PipelineTriggerTime varchar(255)
+AS
+BEGIN
+	INSERT INTO tbl_PipelineExecutionDetails
+	VALUES (@PipelineRunID, @DataFactoryName, @PipelineName, @PipelineTriggerName, @PipelineTriggerTime)
+END
+
+
+
